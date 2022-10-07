@@ -618,15 +618,18 @@ class HomePage(tk.Frame):
                             command = lambda: controller.show_frame(RelationalModelGraphPage))
         button3.pack()
         
-        button4 = ttk.Button(self, text="Start Simulate Process",
+        button4 = ttk.Button(self, text="Start Asynchronous Update Simulation",
                             command = lambda: runSimulationCpp("Biology_Binary_Project.cpp", "Biology_Binary_Project.exe"))
         button4.pack()
         
         button2 = ttk.Button(self, text="See graphical analysis from simulation",
                             command = lambda: controller.show_frame(GraphPage))
         button2.pack()
-        
-        
+
+        button5 = ttk.Button(self, text="Start Synchronous Update Simulation",
+                            command = lambda: runSyncSimulationPy('sync_update.py'))
+        #button5 = ttk.Button(self, text="Start Synchronous Update Simulation")                                    
+        button5.pack()        
         
         #button5 = ttk.Button(self, text="See Result", command = lambda: os.system("notepad.exe Result.txt"))
         #button5.pack()
@@ -1322,6 +1325,9 @@ def runSimulationCpp(cpp_file, exe_file):
     #os.system(exe_file)
     os.system("python data_parse.py")
     
+def runSyncSimulationPy(sync_update_script):
+    os.system('python sync_update.py')
+
 def runParseResultAndShowGraph():
     pass
     #os.system("echo Compiling " + cpp_file)
